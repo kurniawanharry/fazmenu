@@ -1,13 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fazmenu/core/values/enums.dart';
 import 'package:fazmenu/features/home/domain/controllers/drawer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeDrawer extends StatelessWidget {
-  const HomeDrawer({super.key});
+  const HomeDrawer({
+    super.key,
+    this.navigationPanel,
+  });
+
+  final NavigationPanel? navigationPanel;
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return GetBuilder<MainDrawerController>(
         init: MainDrawerController(),
         builder: (get) {
@@ -23,12 +30,15 @@ class HomeDrawer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      IconButton(
-                        splashRadius: 16,
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: const Icon(Icons.clear),
+                      Visibility(
+                        visible: size.width < 600,
+                        child: IconButton(
+                          splashRadius: 16,
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: const Icon(Icons.clear),
+                        ),
                       ),
                       Expanded(
                         child: Padding(
@@ -60,6 +70,7 @@ class HomeDrawer extends StatelessWidget {
                     children: [
                       ...List.generate(get.drawerMenu.length, (index) {
                         return ListTile(
+                          selected: navigationPanel == get.drawerMenu[index]['id'],
                           leading: Icon(
                             get.drawerMenu[index]['icon'] as IconData,
                             size: 20,

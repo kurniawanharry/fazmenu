@@ -1,3 +1,4 @@
+import 'package:fazmenu/core/values/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +13,7 @@ class MainDrawerController extends GetxController {
 
   List<Map<String, Object>> get drawerMenu => [
         {
-          'id': 0,
+          'id': NavigationPanel.order,
           'icon': Icons.home,
           'title': 'Pesanan',
           'quantity': 1,
@@ -21,7 +22,7 @@ class MainDrawerController extends GetxController {
           },
         },
         {
-          'id': 1,
+          'id': NavigationPanel.history,
           'icon': Icons.history,
           'title': 'Riwayat Pesanan',
           'quantity': 1,
@@ -30,7 +31,7 @@ class MainDrawerController extends GetxController {
           },
         },
         {
-          'id': 2,
+          'id': NavigationPanel.product,
           'icon': Icons.add_box,
           'title': 'Produk',
           'quantity': 1,
@@ -39,21 +40,21 @@ class MainDrawerController extends GetxController {
           },
         },
         {
-          'id': 3,
+          'id': NavigationPanel.category,
           'icon': Icons.category,
           'title': 'Kategori',
           'quantity': 1,
           'callBack': () {},
         },
         {
-          'id': 4,
+          'id': NavigationPanel.discount,
           'icon': Icons.discount,
           'title': 'Diskon',
           'quantity': 1,
           'callBack': () {},
         },
         {
-          'id': 5,
+          'id': NavigationPanel.addition,
           'icon': Icons.add,
           'title': 'Tambahan',
           'quantity': 1,
@@ -62,21 +63,21 @@ class MainDrawerController extends GetxController {
           },
         },
         {
-          'id': 6,
+          'id': NavigationPanel.analytics,
           'icon': Icons.analytics,
           'title': 'Analitik',
           'quantity': 1,
           'callBack': () {},
         },
         {
-          'id': 7,
+          'id': NavigationPanel.payment,
           'icon': Icons.payment,
           'title': 'Pembayaran',
           'quantity': 1,
           'callBack': () {},
         },
         {
-          'id': 8,
+          'id': NavigationPanel.settings,
           'icon': Icons.settings,
           'title': 'Pengaturan',
           'quantity': 1,
