@@ -1,7 +1,9 @@
 import 'package:fazmenu/features/addition/presentation/pages/addition_insert.dart';
 import 'package:fazmenu/features/addition/presentation/pages/addition_screen.dart';
+import 'package:fazmenu/features/arrangement/presentation/pages/address_arrangement.dart';
 import 'package:fazmenu/features/arrangement/presentation/pages/arrangement_screen.dart';
 import 'package:fazmenu/features/arrangement/presentation/pages/cover_menu_screen.dart';
+import 'package:fazmenu/features/arrangement/presentation/pages/service_arrangement.dart';
 import 'package:fazmenu/features/history/presentation/pages/history_screen.dart';
 import 'package:fazmenu/features/home/presentation/pages/home.dart';
 import 'package:fazmenu/features/home/presentation/pages/splash.dart';
@@ -18,6 +20,14 @@ class Routes {
     GetPage(
         name: "/settings",
         page: () => const ArrangementScreen(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: "/service",
+        page: () => const ServicesArrangement(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: "/address",
+        page: () => const AddressArrangement(),
         transition: Transition.noTransition),
     GetPage(
         name: "/coverMenu",

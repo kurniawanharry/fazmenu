@@ -89,16 +89,20 @@ class CustomDropdown<T> extends StatelessWidget {
           (value) {
             return DropdownMenuItem<T>(
               value: value,
-              child: Text(value.toString()),
+              child: Text(
+                value.toString(),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             );
           },
         ).toList(),
         value: valueData,
         onChanged: onChange,
-        buttonHeight: 37,
-        icon: const Icon(
+        buttonHeight: 30,
+        icon: Icon(
           Icons.keyboard_arrow_down,
           size: 15,
+          color: FazColors.slate[400]!,
         ),
         itemHeight: 35,
       ),

@@ -28,4 +28,9 @@ class ArrangementController extends GetxController {
     expandPayment = !expandPayment!;
     update();
   }
+
+  ///ROUTES
+  goToServicesArrangement() {
+    Get.toNamed('/service');
+  }
 }

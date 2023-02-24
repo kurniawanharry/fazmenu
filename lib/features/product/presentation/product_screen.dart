@@ -59,15 +59,15 @@ class ProductScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: CustomDropdown(
-                                  items: list,
-                                  valueData: '1',
+                                  items: Constants.orderHistory,
+                                  valueData: 'Semua pesanan',
                                   onChange: (p0) {},
                                 ),
                               ),
                               Expanded(
                                 child: CustomDropdown(
-                                  items: list,
-                                  valueData: '1',
+                                  items: Constants.orderHistory,
+                                  valueData: 'Semua pesanan',
                                   onChange: (p0) {},
                                 ),
                               ),

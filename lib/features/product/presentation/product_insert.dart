@@ -80,7 +80,7 @@ class ProductInsert extends StatelessWidget {
                     children: [
                       const TitleListTile(
                         icon: Icons.book_outlined,
-                        title: 'Name',
+                        title: 'Nama',
                         isNeeded: true,
                       ),
                       SingleLineField(
@@ -130,7 +130,7 @@ class ProductInsert extends StatelessWidget {
                     children: [
                       const TitleListTile(
                         icon: Icons.code,
-                        title: 'Kode POS',
+                        title: 'Kode SKU',
                         isNeeded: false,
                         iconTitle: Icons.info_outline,
                       ),

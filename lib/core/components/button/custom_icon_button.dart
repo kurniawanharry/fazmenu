@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
     Key? key,
-    this.size = 16,
+    this.size = 18,
     this.onTap,
     this.icon,
   }) : super(key: key);
@@ -16,19 +16,23 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      padding: EdgeInsets.zero,
-      constraints: const BoxConstraints(minWidth: 40, maxWidth: 50),
-      visualDensity: const VisualDensity(
-        horizontal: VisualDensity.minimumDensity,
-        vertical: VisualDensity.minimumDensity,
-      ),
-      splashRadius: 20,
-      onPressed: onTap,
-      icon: Icon(
-        icon,
-        size: size,
-        color: FazColors.neutral[400],
+    return SizedBox(
+      width: 20,
+      height: 20,
+      child: IconButton(
+        padding: EdgeInsets.zero,
+        constraints: const BoxConstraints(minWidth: 40, maxWidth: 50),
+        visualDensity: const VisualDensity(
+          horizontal: VisualDensity.minimumDensity,
+          vertical: VisualDensity.minimumDensity,
+        ),
+        splashRadius: 20,
+        onPressed: onTap,
+        icon: Icon(
+          icon,
+          size: size,
+          color: FazColors.blue[600],
+        ),
       ),
     );
   }

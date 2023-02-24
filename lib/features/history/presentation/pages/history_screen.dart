@@ -1,7 +1,5 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:fazmenu/core/components/dropdown/custom_dropbutton.dart';
 import 'package:fazmenu/core/components/text_field/single_line_field.dart';
-import 'package:fazmenu/core/util/function.dart';
 import 'package:fazmenu/core/values/colors.dart';
 import 'package:fazmenu/core/values/constants.dart';
 import 'package:fazmenu/core/values/enums.dart';
@@ -12,8 +10,6 @@ import 'package:fazmenu/features/home/presentation/widgets/home_drawer.dart';
 import 'package:fazmenu/features/home/presentation/widgets/split_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-List<String> list = ['1', '2', '3'];
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
@@ -26,7 +22,7 @@ class HistoryScreen extends StatelessWidget {
         navigationPanel: NavigationPanel.history,
         widget: Scaffold(
           appBar: AppBar(
-            title: Text('Riwayat Pesanan'),
+            title: const Text('Riwayat Pesanan'),
           ),
           body: _body(context),
         ),
@@ -37,7 +33,7 @@ class HistoryScreen extends StatelessWidget {
           navigationPanel: NavigationPanel.history,
         ),
         appBar: AppBar(
-          title: Text('Riwayat Pesanan'),
+          title: const Text('Riwayat Pesanan'),
         ),
         body: _body(context),
       );
@@ -46,54 +42,71 @@ class HistoryScreen extends StatelessWidget {
 
   Widget _body(BuildContext context) {
     return GetBuilder<HistoryController>(
-        init: HistoryController(),
-        builder: (get) {
-          return SafeArea(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Column(
-                    children: [
-                      const SingleLineField(),
-                      const SizedBox(height: 10),
-                      CustomDropdown(
-                        items: list,
-                        valueData: '1',
-                        onChange: (p0) {},
-                      ),
-                      const SizedBox(height: 10),
-                      InkWell(
-                        onTap: () {
-                          _dateOptions(context);
-                        },
-                        child: const IgnorePointer(
-                          ignoring: true,
-                          child: SingleLineField(
-                            suffixIcon: Icon(Icons.keyboard_arrow_down),
-                            enabled: false,
-                            readOnly: true,
-                            hint: 'Pilih Hari',
-                          ),
-                        ),
-                      )
-                    ],
+      init: HistoryController(),
+      builder: (get) {
+        return SafeArea(
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    bottomRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
                   ),
+                  color: FazColors.blue[600]!,
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: 5,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return const HistoryCardWidget();
-                    },
-                  ),
-                )
-              ],
-            ),
-          );
-        });
+                child: Column(
+                  children: [
+                    const SingleLineField(),
+                    const SizedBox(height: 10),
+                    CustomDropdown(
+                      items: Constants.orderHistory,
+                      valueData: 'Semua pesanan',
+                      onChange: (p0) {},
+                    ),
+                    const SizedBox(height: 10),
+                    InkWell(
+                      onTap: () {
+                        _dateOptions(context);
+                      },
+                      child: const IgnorePointer(
+                        ignoring: true,
+                        child: SingleLineField(
+                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                          suffixIconConstraints: BoxConstraints(minWidth: 45, maxWidth: 80),
+                          suffixIcon: Icon(Icons.keyboard_arrow_down, size: 15),
+                          enabled: false,
+                          readOnly: true,
+                          hint: 'Pilih Hari',
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 5,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return const HistoryCardWidget();
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: OutlinedButton(
+                  onPressed: () {},
+                  child: const Text('Ekspor Riwayat Pesanan'),
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
   }
 
   Future<dynamic> _dateOptions(BuildContext context) {

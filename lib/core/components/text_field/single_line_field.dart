@@ -49,7 +49,7 @@ class SingleLineField extends StatelessWidget {
   const SingleLineField({
     Key? key,
     this.autovalidateMode = AutovalidateMode.disabled,
-    this.contentPadding = const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+    this.contentPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
     this.fieldTheme = FieldTheme.light,
     this.focusNode,
     this.onComplete,

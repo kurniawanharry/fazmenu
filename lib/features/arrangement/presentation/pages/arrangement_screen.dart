@@ -1,10 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fazmenu/core/components/button/button_edit.dart';
+import 'package:fazmenu/core/components/button/custom_icon_button.dart';
+import 'package:fazmenu/core/components/switch/custom_switch_tile.dart';
+import 'package:fazmenu/core/values/colors.dart';
 import 'package:fazmenu/core/values/constants.dart';
 import 'package:fazmenu/core/values/enums.dart';
 import 'package:fazmenu/features/arrangement/domain/controllers/arrangement_controller.dart';
 import 'package:fazmenu/features/home/presentation/widgets/home_drawer.dart';
 import 'package:fazmenu/features/home/presentation/widgets/split_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:get/get.dart';
 
 class ArrangementScreen extends StatelessWidget {
@@ -45,7 +50,7 @@ class ArrangementScreen extends StatelessWidget {
               Visibility(
                 visible: width < Constants.maxWidth,
                 child: Container(
-                  color: Colors.blue,
+                  color: FazColors.blue[600],
                   height: 104,
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                   child: Row(
@@ -71,8 +76,12 @@ class ArrangementScreen extends StatelessWidget {
                 child: ListView(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.account_box),
-                      title: Text('Akun'),
+                      leading: const Icon(Icons.account_box),
+                      title: Text(
+                        'Akun',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      onTap: () {},
                     ),
                     ExpansionPanelList(
                       elevation: 0,
@@ -85,29 +94,84 @@ class ArrangementScreen extends StatelessWidget {
                           canTapOnHeader: true,
                           isExpanded: get.expandBasic!,
                           headerBuilder: (context, isExpanded) => ListTile(
-                            leading: Icon(Icons.settings),
-                            title: Text('Pengaturan Dasar'),
+                            leading: const Icon(Icons.settings),
+                            title: Text(
+                              'Pengaturan Dasar',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
                           ),
                           body: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ListTile(
-                                  title: Text('Akun Bank'),
-                                  subtitle: Text('text text text'),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    'Akun Bank',
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ),
+                                CreditCardWidget(
+                                  padding: 10,
+                                  cardNumber: '4444 1111 1111 4141',
+                                  expiryDate: '12/30',
+                                  cardHolderName: 'PT Digital Laskar Pelangi',
+                                  cvvCode: '123',
+                                  bankName: 'Bank BCA',
+                                  cardType: CardType.visa,
+                                  showBackView: false,
+                                  isHolderNameVisible: true,
+                                  cardBgColor: FazColors.slate[900]!,
+                                  onCreditCardWidgetChange:
+                                      (creditCardBrand) {}, //true when you want to show cvv(back) view
                                 ),
                                 ListTile(
-                                  title: Text('Layanan'),
-                                  subtitle: Text('text text text'),
+                                  title: Text(
+                                    'Layanan',
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  subtitle: const Text('Pilih layanan yang disediakan di Fazmenu'),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 15,
+                                    color: FazColors.slate[400]!,
+                                  ),
+                                  onTap: get.goToServicesArrangement,
                                 ),
                                 ListTile(
-                                  title: Text('Jam Buka'),
-                                  subtitle: Text('text text text'),
+                                  title: Row(
+                                    children: [
+                                      Text('Jam Buka',
+                                          style: Theme.of(context).textTheme.bodyMedium),
+                                      CustomIconButton(
+                                        icon: Icons.info,
+                                        onTap: () {},
+                                      )
+                                    ],
+                                  ),
+                                  subtitle: const Text(
+                                      'Atur Buka tutup toko. Terima order hanya saat toko Anda Buka'),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 15,
+                                    color: FazColors.slate[400]!,
+                                  ),
+                                  onTap: () {},
                                 ),
                                 ListTile(
-                                  title: Text('Pengaturan Bahasa'),
-                                  subtitle: Text('text text text'),
+                                  title: Text(
+                                    'Pengaturan Bahasa',
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  subtitle:
+                                      const Text('Atur Bahasa yang akan digunakan oleh Pembeli'),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 15,
+                                    color: FazColors.slate[400]!,
+                                  ),
+                                  onTap: () {},
                                 ),
                               ],
                             ),
@@ -125,9 +189,12 @@ class ArrangementScreen extends StatelessWidget {
                         ExpansionPanel(
                           canTapOnHeader: true,
                           isExpanded: get.expandMaterial!,
-                          headerBuilder: (context, isExpanded) => const ListTile(
-                            leading: Icon(Icons.rocket),
-                            title: Text('Material'),
+                          headerBuilder: (context, isExpanded) => ListTile(
+                            leading: const Icon(Icons.rocket),
+                            title: Text(
+                              'Material',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
                           ),
                           body: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -148,15 +215,23 @@ class ArrangementScreen extends StatelessWidget {
                                     ListTile(
                                       style: ListTileStyle.drawer,
                                       title: const Text('Sesuaikan cover menu'),
-                                      trailing: const Icon(Icons.arrow_forward_ios, size: 15),
+                                      trailing: Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 15,
+                                        color: FazColors.slate[400]!,
+                                      ),
                                       onTap: () {
                                         Get.toNamed('/coverMenu');
                                       },
                                     ),
                                     ListTile(
                                       style: ListTileStyle.drawer,
-                                      title: Text('Banner diskon'),
-                                      trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                                      title: const Text('Banner diskon'),
+                                      trailing: Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 15,
+                                        color: FazColors.slate[400]!,
+                                      ),
                                       onTap: () {},
                                     )
                                   ],
@@ -173,14 +248,22 @@ class ArrangementScreen extends StatelessWidget {
                                     ),
                                     ListTile(
                                       style: ListTileStyle.drawer,
-                                      title: Text('Kode QR Toko'),
-                                      trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                                      title: const Text('Kode QR Toko'),
+                                      trailing: Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 15,
+                                        color: FazColors.slate[400]!,
+                                      ),
                                       onTap: () {},
                                     ),
                                     ListTile(
                                       style: ListTileStyle.drawer,
-                                      title: Text('kode QR Meja'),
-                                      trailing: Icon(Icons.arrow_forward_ios, size: 15),
+                                      title: const Text('kode QR Meja'),
+                                      trailing: Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 15,
+                                        color: FazColors.slate[400]!,
+                                      ),
                                       onTap: () {},
                                     )
                                   ],
@@ -202,29 +285,115 @@ class ArrangementScreen extends StatelessWidget {
                           canTapOnHeader: true,
                           isExpanded: get.expandPayment!,
                           headerBuilder: (context, isExpanded) => ListTile(
-                            leading: Icon(Icons.payment),
-                            title: Text('Set Pembayaran'),
+                            leading: const Icon(Icons.payment),
+                            title: Text(
+                              'Set Pembayaran',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
                           ),
-                          body: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
+                          body: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            alignment: Alignment.centerLeft,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ListTile(
-                                  title: Text('Pajak'),
-                                  subtitle: Text('text text text'),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Pajak',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(fontWeight: FontWeight.w500),
+                                    ),
+                                    ListTile(
+                                      title: Row(
+                                        children: [
+                                          Text(
+                                            'Nilai Pajak',
+                                            style: Theme.of(context).textTheme.bodySmall,
+                                          ),
+                                          Text(
+                                            ' (10%)',
+                                            style: Theme.of(context).textTheme.bodySmall,
+                                          ),
+                                        ],
+                                      ),
+                                      trailing: TextButton(
+                                        onPressed: () {},
+                                        child: ButtonEdit(
+                                          onTap: () {},
+                                        ),
+                                      ),
+                                    ),
+                                    CustomSwitchTile(
+                                      title: Text(
+                                        'Pajak inklusif',
+                                        style: Theme.of(context).textTheme.bodySmall,
+                                      ),
+                                      value: true,
+                                      onChanged: (value) {},
+                                    ),
+                                    CustomSwitchTile(
+                                      title: Row(
+                                        children: [
+                                          Text(
+                                            'Makan di Tempat',
+                                            style: Theme.of(context).textTheme.bodySmall,
+                                          ),
+                                          CustomIconButton(
+                                            icon: Icons.info,
+                                            onTap: () {},
+                                          )
+                                        ],
+                                      ),
+                                      value: false,
+                                      onChanged: (value) {},
+                                    ),
+                                  ],
                                 ),
                                 ListTile(
-                                  title: Text('Biaya Layanan'),
-                                  subtitle: Text('text text text'),
+                                  contentPadding: EdgeInsets.zero,
+                                  title: Text(
+                                    'Biaya Layanan',
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  subtitle: const Text('Biaya layanan pelanggan tersedia'),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 15,
+                                    color: FazColors.slate[400]!,
+                                  ),
+                                  onTap: () {},
                                 ),
                                 ListTile(
-                                  title: Text('Pembulatan'),
-                                  subtitle: Text('text text text'),
+                                  contentPadding: EdgeInsets.zero,
+                                  title: Text(
+                                    'Pembulatan',
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  subtitle: const Text('Aplikasikan pembulatan dalam pesanan'),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 15,
+                                    color: FazColors.slate[400]!,
+                                  ),
+                                  onTap: () {},
                                 ),
                                 ListTile(
-                                  title: Text('Pilihan Pembayaran'),
-                                  subtitle: Text('text text text'),
+                                  contentPadding: EdgeInsets.zero,
+                                  title: Text(
+                                    'Pilihan Pembayaran',
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  subtitle: const Text('Opsi pilihan pembayaran untuk toko kamu'),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 15,
+                                    color: FazColors.slate[400]!,
+                                  ),
+                                  onTap: () {},
                                 ),
                               ],
                             ),

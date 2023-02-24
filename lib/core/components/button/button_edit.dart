@@ -17,7 +17,7 @@ class ButtonEdit extends StatelessWidget {
       splashRadius: 16,
       onPressed: onTap,
       icon: const Icon(Icons.edit),
-      color: FazColors.black,
+      color: FazColors.slate[400],
       iconSize: 16,
     );
   }
