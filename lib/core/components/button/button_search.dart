@@ -23,7 +23,7 @@ class ButtonSearch extends StatelessWidget {
       icon: Icon(
         isClick! ? Icons.clear : Icons.search,
         size: size,
-        color: FazColors.neutral[400],
+        color: FazColors.white,
       ),
     );
   }

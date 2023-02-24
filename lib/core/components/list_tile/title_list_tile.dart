@@ -25,65 +25,66 @@ class TitleListTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Icon(
-              icon,
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    title ?? '',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(fontWeight: FontWeight.w600),
-                  ),
-                  Visibility(
-                    visible: isNeeded!,
-                    child: Text(
-                      ' *',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(fontWeight: FontWeight.w600, color: FazColors.red),
-                    ),
-                  ),
-                  Visibility(
-                    visible: iconTitle != null,
-                    child: CustomIconButton(
-                      icon: iconTitle,
-                      size: 18,
-                      onTap: () {},
-                    ),
-                  )
-                ],
-              ),
-              Visibility(
-                visible: subTitle?.isNotEmpty ?? false,
-                child: RichText(
-                  text: TextSpan(
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: FazColors.slate[400],
-                        ),
-                    text: subTitle,
-                  ),
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Icon(
+                  icon,
                 ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        title ?? '',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.w600),
+                      ),
+                      Visibility(
+                        visible: isNeeded!,
+                        child: Text(
+                          ' *',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(fontWeight: FontWeight.w600, color: FazColors.red),
+                        ),
+                      ),
+                      Visibility(
+                        visible: iconTitle != null,
+                        child: CustomIconButton(
+                          icon: iconTitle,
+                          size: 18,
+                          onTap: () {},
+                        ),
+                      )
+                    ],
+                  ),
+                  Visibility(
+                    visible: subTitle?.isNotEmpty ?? false,
+                    child: RichText(
+                      text: TextSpan(
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: FazColors.slate[400],
+                            ),
+                        text: subTitle,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-          const Spacer(),
-          Visibility(
-            visible: trailing != null,
-            child: trailing ?? const SizedBox(),
-          ),
+          trailing ?? const SizedBox(),
         ],
       ),
     );

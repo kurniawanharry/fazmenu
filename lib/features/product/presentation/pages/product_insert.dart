@@ -28,51 +28,92 @@ class ProductInsert extends StatelessWidget {
                   icon: Icons.image_outlined,
                   title: 'Gambar Produk',
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5, bottom: 20),
-                  child: ReorderableGridView.count(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    onReorder: (oldIndex, newIndex) {},
-                    crossAxisCount: 4,
-                    childAspectRatio: 1,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    footer: [
-                      DottedBorder(
-                        dashPattern: const [8, 4],
-                        strokeWidth: 2,
-                        radius: const Radius.circular(10),
-                        color: FazColors.blue[300]!,
-                        borderType: BorderType.RRect,
-                        child: InkWell(
-                          onTap: () {},
-                          child: Center(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 10),
-                                  child: Icon(
-                                    Icons.image_outlined,
-                                    color: FazColors.blue[300],
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5, bottom: 20),
+                      child: SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: DottedBorder(
+                          dashPattern: const [8, 4],
+                          strokeWidth: 2,
+                          radius: const Radius.circular(10),
+                          color: FazColors.blue[300]!,
+                          borderType: BorderType.RRect,
+                          child: InkWell(
+                            onTap: () {},
+                            child: Center(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 10),
+                                    child: Icon(
+                                      Icons.image_outlined,
+                                      color: FazColors.blue[300],
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  'Tambah Produk',
-                                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                        fontSize: 10,
-                                        color: FazColors.blue[300],
-                                      ),
-                                )
-                              ],
+                                  Text(
+                                    'Tambah Produk',
+                                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                          fontSize: 10,
+                                          color: FazColors.blue[300],
+                                        ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                      // ReorderableGridView.count(
+                      //   shrinkWrap: true,
+                      //   physics: const NeverScrollableScrollPhysics(),
+                      //   onReorder: (oldIndex, newIndex) {},
+                      //   crossAxisCount: 4,
+                      //   childAspectRatio: 1,
+                      //   crossAxisSpacing: 10,
+                      //   mainAxisSpacing: 10,
+                      //   footer: [
+                      //     DottedBorder(
+                      //       dashPattern: const [8, 4],
+                      //       strokeWidth: 2,
+                      //       radius: const Radius.circular(10),
+                      //       color: FazColors.blue[300]!,
+                      //       borderType: BorderType.RRect,
+                      //       child: InkWell(
+                      //         onTap: () {},
+                      //         child: Center(
+                      //           child: Column(
+                      //             mainAxisSize: MainAxisSize.min,
+                      //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //             children: [
+                      //               Padding(
+                      //                 padding: const EdgeInsets.only(bottom: 10),
+                      //                 child: Icon(
+                      //                   Icons.image_outlined,
+                      //                   color: FazColors.blue[300],
+                      //                 ),
+                      //               ),
+                      //               Text(
+                      //                 'Tambah Produk',
+                      //                 style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      //                       fontSize: 10,
+                      //                       color: FazColors.blue[300],
+                      //                     ),
+                      //               )
+                      //             ],
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15),
@@ -186,41 +227,17 @@ class ProductInsert extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15),
                   child: TitleListTile(
-                    icon: Icons.category_outlined,
-                    title: 'Kategori',
-                    isNeeded: true,
-                    trailing: OutlinedButton.icon(
-                      style: OutlinedButton.styleFrom(
-                        visualDensity: const VisualDensity(vertical: VisualDensity.minimumDensity),
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      ),
-                      onPressed: () {},
-                      icon: Icon(Icons.check),
-                      label: Text('Pilih'),
-                    ),
-                  ),
+                      icon: Icons.category_outlined,
+                      title: 'Kategori',
+                      isNeeded: true,
+                      trailing: TextButton(onPressed: () {}, child: Text('Pilih'))),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15),
                   child: TitleListTile(
-                    icon: Icons.change_circle_outlined,
-                    title: 'Ubahan',
-                    trailing: OutlinedButton.icon(
-                      style: OutlinedButton.styleFrom(
-                        visualDensity: const VisualDensity(vertical: VisualDensity.minimumDensity),
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      ),
-                      onPressed: () {},
-                      icon: const Icon(Icons.add),
-                      label: const Text('Tambah'),
-                    ),
-                  ),
+                      icon: Icons.change_circle_outlined,
+                      title: 'Ubahan',
+                      trailing: TextButton(onPressed: () {}, child: Text('Tambah'))),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),

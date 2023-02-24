@@ -228,7 +228,7 @@ class SingleLineField extends StatelessWidget {
                 hintText: hint,
                 hintStyle: hintStyle ??
                     textStyle?.copyWith(color: FazColors.slate[400]) ??
-                    Theme.of(context).textTheme.bodyMedium?.copyWith(color: FazColors.slate[400]),
+                    Theme.of(context).textTheme.bodySmall?.copyWith(color: FazColors.slate[400]),
                 filled: true,
                 fillColor: fillColor ?? FazColors.slate[50],
                 suffixIconConstraints: suffixIconConstraints,

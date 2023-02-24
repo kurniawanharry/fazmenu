@@ -11,14 +11,17 @@ class ButtonEdit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      padding: EdgeInsets.zero,
-      constraints: const BoxConstraints(),
-      splashRadius: 16,
-      onPressed: onTap,
-      icon: const Icon(Icons.edit),
-      color: FazColors.slate[400],
-      iconSize: 16,
+    return SizedBox(
+      height: 30,
+      width: 30,
+      child: IconButton(
+        padding: EdgeInsets.zero,
+        splashRadius: 16,
+        onPressed: onTap,
+        icon: const Icon(Icons.edit),
+        color: FazColors.slate[400],
+        iconSize: 16,
+      ),
     );
   }
 }

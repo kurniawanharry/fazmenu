@@ -1,3 +1,4 @@
+import 'package:fazmenu/core/components/button/button_edit.dart';
 import 'package:fazmenu/core/components/image_url.dart';
 import 'package:fazmenu/core/components/list_tile/title_list_tile.dart';
 import 'package:fazmenu/core/components/text_field/single_line_field.dart';
@@ -101,9 +102,8 @@ class AddressArrangement extends StatelessWidget {
                     icon: Icons.map_outlined,
                     title: 'Pin Lokasi',
                     isNeeded: true,
-                    trailing: TextButton(
-                      onPressed: () {},
-                      child: const Text('Atur'),
+                    trailing: ButtonEdit(
+                      onTap: () {},
                     ),
                   ),
                   Card(

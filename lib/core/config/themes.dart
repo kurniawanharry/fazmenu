@@ -10,7 +10,7 @@ class Themes {
     return ThemeData(
       useMaterial3: true,
       primarySwatch: FazColors.blue,
-      platform: Platform.isAndroid ? TargetPlatform.android : TargetPlatform.iOS,
+      // platform: Platform.isAndroid ? TargetPlatform.android : TargetPlatform.iOS,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       colorScheme: ColorScheme(
         brightness: Brightness.light,
@@ -31,12 +31,16 @@ class Themes {
         color: FazColors.white,
         shadowColor: FazColors.slate[600],
         surfaceTintColor: FazColors.white,
+        // shape: RoundedRectangleBorder(
+        //     // borderRadius: BorderRadius.circular(5),
+        //     // side: BorderSide(width: 0.5, strokeAlign: 0, color: FazColors.slate[400]!),
+        //     ),
         margin: const EdgeInsets.only(bottom: 10),
       ),
       appBarTheme: AppBarTheme(
         color: FazColors.blue[600]!,
-        titleTextStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              fontSize: 16,
+        titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontSize: 18,
               color: FazColors.white,
             ),
         iconTheme: const IconThemeData(
@@ -47,6 +51,14 @@ class Themes {
         scrolledUnderElevation: 0.0,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
+      // iconButtonTheme: const IconButtonThemeData(
+      //   style: ButtonStyle(
+      //     visualDensity: VisualDensity(
+      //       vertical: VisualDensity.minimumDensity,
+      //       horizontal: VisualDensity.minimumDensity,
+      //     ),
+      //   ),
+      // ),
       checkboxTheme: CheckboxThemeData(
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         shape: RoundedRectangleBorder(
@@ -86,6 +98,10 @@ class Themes {
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: FazColors.blue[600],
         foregroundColor: FazColors.white,
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: FazColors.white,
+        modalBackgroundColor: FazColors.white,
       ),
       textTheme: GoogleFonts.interTextTheme().copyWith(
         bodyLarge: TextStyle(

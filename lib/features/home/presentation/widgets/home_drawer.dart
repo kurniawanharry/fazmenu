@@ -26,12 +26,13 @@ class HomeDrawer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              DrawerHeader(
+              Container(
                 margin: EdgeInsets.zero,
-                padding: EdgeInsets.zero,
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                height: 150,
                 decoration: BoxDecoration(
-                  color: FazColors.blue[600],
-                ),
+                    color: FazColors.blue[600],
+                    borderRadius: const BorderRadius.only(bottomRight: Radius.circular(20))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -19,8 +19,12 @@ class HistoryController extends GetxController {
     super.onInit();
   }
 
+  ///ROUTES
+  goToExport() {
+    Get.toNamed('/export');
+  }
+
   updateHistoryDate(HistoryDate? value) {
-    print(value);
     dateType = value;
     update();
   }

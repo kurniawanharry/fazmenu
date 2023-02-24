@@ -4,11 +4,12 @@ import 'package:fazmenu/features/arrangement/presentation/pages/address_arrangem
 import 'package:fazmenu/features/arrangement/presentation/pages/arrangement_screen.dart';
 import 'package:fazmenu/features/arrangement/presentation/pages/cover_menu_screen.dart';
 import 'package:fazmenu/features/arrangement/presentation/pages/service_arrangement.dart';
+import 'package:fazmenu/features/history/presentation/pages/history_export.dart';
 import 'package:fazmenu/features/history/presentation/pages/history_screen.dart';
 import 'package:fazmenu/features/home/presentation/pages/home.dart';
 import 'package:fazmenu/features/home/presentation/pages/splash.dart';
-import 'package:fazmenu/features/product/presentation/product_insert.dart';
-import 'package:fazmenu/features/product/presentation/product_screen.dart';
+import 'package:fazmenu/features/product/presentation/pages/product_insert.dart';
+import 'package:fazmenu/features/product/presentation/pages/product_screen.dart';
 import 'package:fazmenu/main.dart';
 import 'package:get/get.dart';
 
@@ -47,6 +48,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: "/history", page: () => const HistoryScreen(), transition: Transition.noTransition),
+    GetPage(name: "/export", page: () => HistoryExport(), transition: Transition.noTransition),
     GetPage(name: "/splash", page: () => const Splash(), transition: Transition.noTransition),
   ];
 }

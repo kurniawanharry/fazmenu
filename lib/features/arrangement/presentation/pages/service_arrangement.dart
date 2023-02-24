@@ -1,3 +1,4 @@
+import 'package:fazmenu/core/components/button/button_edit.dart';
 import 'package:fazmenu/core/components/button/custom_icon_button.dart';
 import 'package:fazmenu/core/components/checkbox/custom_checkbox_tile.dart';
 import 'package:fazmenu/core/components/chip/custom_chip.dart';
@@ -276,9 +277,8 @@ class ServicesArrangement extends StatelessWidget {
                         'Alamat Pengambilan',
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
-                      TextButton(
-                        onPressed: get.goToAddress,
-                        child: const Text('Ubah'),
+                      ButtonEdit(
+                        onTap: get.goToAddress,
                       )
                     ],
                   ),

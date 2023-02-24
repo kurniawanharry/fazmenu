@@ -35,7 +35,6 @@ class AdditionInsertController extends GetxController {
   changeStockValue(Key key, bool value) {
     var index = optionWidget.indexWhere((element) => element.key == key);
     optionStokController[index] = value;
-    print(optionStokController[index]);
     update();
   }
 

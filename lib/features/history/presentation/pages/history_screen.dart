@@ -88,7 +88,7 @@ class HistoryScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemCount: 5,
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return const HistoryCardWidget();
@@ -98,7 +98,7 @@ class HistoryScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: get.goToExport,
                   child: const Text('Ekspor Riwayat Pesanan'),
                 ),
               )

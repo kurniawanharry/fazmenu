@@ -1,3 +1,4 @@
+import 'package:fazmenu/core/components/button/button_exit.dart';
 import 'package:fazmenu/core/components/button/button_radio.dart';
 import 'package:fazmenu/core/components/text_field/single_line_field.dart';
 import 'package:fazmenu/core/values/enums.dart';
@@ -22,13 +23,11 @@ class HistoryDateWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         ListTile(
-          title: Text('Pilih Tanggal'),
-          trailing: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(Icons.clear),
+          title: Text(
+            'Pilih Tanggal',
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
+          trailing: ButtonExit(),
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -41,7 +40,7 @@ class HistoryDateWidget extends StatelessWidget {
               ButtonRadio(
                 value: dateType,
                 groupValue: HistoryDate.today,
-                label: 'hari ini',
+                label: 'Hari ini',
                 onChanged: tapDate,
               ),
               ButtonRadio(
@@ -72,16 +71,33 @@ class HistoryDateWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 30),
-          child: InkWell(
-            onTap: onTap,
-            child: const IgnorePointer(
-              ignoring: true,
-              child: SingleLineField(
-                readOnly: true,
-                contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Date Range',
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
-            ),
+              const SizedBox(height: 5),
+              InkWell(
+                onTap: onTap,
+                child: const IgnorePointer(
+                  ignoring: true,
+                  child: SingleLineField(
+                    readOnly: true,
+                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 20),
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text('Konfirmasi'),
           ),
         )
       ],

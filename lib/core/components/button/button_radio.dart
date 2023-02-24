@@ -1,3 +1,4 @@
+import 'package:fazmenu/core/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class ButtonRadio<T> extends StatelessWidget {
@@ -27,12 +28,12 @@ class ButtonRadio<T> extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
           decoration: ShapeDecoration(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            color: isSelected ? Colors.teal : Colors.white,
+            color: isSelected ? FazColors.blue[400] : Colors.white,
           ),
           child: Text(
             label,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  color: isSelected ? Colors.white : Colors.teal,
+                  color: isSelected ? Colors.white : FazColors.slate[400],
                 ),
           ),
         ),

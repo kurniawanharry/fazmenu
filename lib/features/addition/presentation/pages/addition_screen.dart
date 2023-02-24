@@ -1,6 +1,8 @@
+import 'package:fazmenu/core/components/button/button_edit.dart';
 import 'package:fazmenu/core/values/constants.dart';
 import 'package:fazmenu/core/values/enums.dart';
 import 'package:fazmenu/features/addition/domain/controllers/addition_controller.dart';
+import 'package:fazmenu/features/addition/presentation/widgets/addition_chip.dart';
 import 'package:fazmenu/features/home/presentation/widgets/home_drawer.dart';
 import 'package:fazmenu/features/home/presentation/widgets/split_view.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +65,7 @@ class AdditionScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  elevation: 5,
+                  elevation: 3,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -72,14 +74,12 @@ class AdditionScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text('Text 1'),
-                            OutlinedButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.edit,
-                                size: 16,
-                              ),
-                              label: const Text('Ganti'),
+                            Text(
+                              'Steak Sauce',
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            ButtonEdit(
+                              onTap: () {},
                             ),
                           ],
                         ),
@@ -88,10 +88,8 @@ class AdditionScreen extends StatelessWidget {
                           children: [
                             ...List.generate(10, (index) {
                               return Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: Chip(
-                                  label: Text('Text $index'),
-                                ),
+                                padding: const EdgeInsets.only(top: 5),
+                                child: AdditionChip(text: 'Text $index'),
                               );
                             }),
                           ],

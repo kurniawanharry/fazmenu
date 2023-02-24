@@ -14,15 +14,18 @@ class ButtonDelete extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      padding: EdgeInsets.zero,
-      constraints: const BoxConstraints(),
-      splashRadius: 18,
-      onPressed: onTap,
-      icon: Icon(
-        Icons.delete_outline,
-        size: size,
-        color: FazColors.neutral[400],
+    return SizedBox(
+      height: 30,
+      width: 30,
+      child: IconButton(
+        padding: EdgeInsets.zero,
+        splashRadius: 18,
+        onPressed: onTap,
+        icon: Icon(
+          Icons.delete_outline,
+          size: size,
+          color: FazColors.neutral[400],
+        ),
       ),
     );
   }

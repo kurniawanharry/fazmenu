@@ -114,6 +114,8 @@ class ArrangementScreen extends StatelessWidget {
                                 ),
                                 CreditCardWidget(
                                   padding: 10,
+                                  height: 250,
+                                  width: 400,
                                   cardNumber: '4444 1111 1111 4141',
                                   expiryDate: '12/30',
                                   cardHolderName: 'PT Digital Laskar Pelangi',
@@ -214,7 +216,13 @@ class ArrangementScreen extends StatelessWidget {
                                     ),
                                     ListTile(
                                       style: ListTileStyle.drawer,
-                                      title: const Text('Sesuaikan cover menu'),
+                                      title: Text(
+                                        'Sesuaikan cover menu',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium
+                                            ?.copyWith(fontSize: 12),
+                                      ),
                                       trailing: Icon(
                                         Icons.arrow_forward_ios,
                                         size: 15,
@@ -226,7 +234,13 @@ class ArrangementScreen extends StatelessWidget {
                                     ),
                                     ListTile(
                                       style: ListTileStyle.drawer,
-                                      title: const Text('Banner diskon'),
+                                      title: Text(
+                                        'Banner diskon',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium
+                                            ?.copyWith(fontSize: 12),
+                                      ),
                                       trailing: Icon(
                                         Icons.arrow_forward_ios,
                                         size: 15,
@@ -248,7 +262,13 @@ class ArrangementScreen extends StatelessWidget {
                                     ),
                                     ListTile(
                                       style: ListTileStyle.drawer,
-                                      title: const Text('Kode QR Toko'),
+                                      title: Text(
+                                        'Kode QR Toko',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium
+                                            ?.copyWith(fontSize: 12),
+                                      ),
                                       trailing: Icon(
                                         Icons.arrow_forward_ios,
                                         size: 15,
@@ -258,7 +278,13 @@ class ArrangementScreen extends StatelessWidget {
                                     ),
                                     ListTile(
                                       style: ListTileStyle.drawer,
-                                      title: const Text('kode QR Meja'),
+                                      title: Text(
+                                        'kode QR Meja',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium
+                                            ?.copyWith(fontSize: 12),
+                                      ),
                                       trailing: Icon(
                                         Icons.arrow_forward_ios,
                                         size: 15,

@@ -13,16 +13,20 @@ class ButtonExit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      padding: EdgeInsets.zero,
-      splashRadius: 10,
-      onPressed: () {
-        Get.back();
-      },
-      icon: SvgPicture.asset(
-        'assets/icons/svg/close.svg',
-        color: color,
-        height: 15,
+    return SizedBox(
+      height: 30,
+      width: 30,
+      child: IconButton(
+        padding: EdgeInsets.zero,
+        splashRadius: 10,
+        onPressed: () {
+          Get.back();
+        },
+        icon: SvgPicture.asset(
+          'assets/icons/svg/close.svg',
+          color: color,
+          height: 15,
+        ),
       ),
     );
   }
