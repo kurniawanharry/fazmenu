@@ -23,11 +23,11 @@ class InitialBinding implements Bindings {
   void dependencies() {
     Get.lazyPut<OrderController>(() => OrderController(), fenix: true);
     Get.lazyPut<MainDrawerController>(() => MainDrawerController(), fenix: true);
-    Get.lazyPut<ProductController>(() => ProductController());
-    Get.lazyPut<HistoryController>(() => HistoryController());
+    Get.lazyPut<ProductController>(() => ProductController(), fenix: true);
+    Get.lazyPut<HistoryController>(() => HistoryController(), fenix: true);
     Get.lazyPut<ArrangementController>(() => ArrangementController());
-    Get.lazyPut<AnalyticController>(() => AnalyticController());
-    Get.lazyPut<CategoryController>(() => CategoryController());
+    Get.lazyPut<AnalyticController>(() => AnalyticController(), fenix: true);
+    Get.lazyPut<CategoryController>(() => CategoryController(), fenix: true);
     Get.lazyPut<AdditionController>(() => AdditionController(), fenix: true);
     Get.lazyPut<CategoryInsertController>(() => CategoryInsertController(), fenix: true);
     Get.lazyPut<DiscountInsertController>(() => DiscountInsertController(), fenix: true);
